@@ -1,0 +1,23 @@
+{
+  "name": "team-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cmullendore-bootcamp/team-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmullendore-bootcamp/team-generator/issues"
+  },
+  "homepage": "https://github.com/cmullendore-bootcamp/team-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.3",
+    "jest": "^28.0.2"
+  }
+}
