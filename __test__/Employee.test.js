@@ -19,13 +19,13 @@ test("Checks to see if Email property returns Email", () => {
 });
 
 test("Checks to see if getName() returns Name", () => {
-    expect(employee.getName()).toEqual("Name");
+    expect(employee.GetName()).toEqual("Name");
 });
 
 test("Checks to see if Id property returns Id", () => {
-    expect(employee.getId()).toEqual("Id");
+    expect(employee.GetId()).toEqual("Id");
 });
 
 test("Checks to see if Email property returns Email", () => {
-    expect(employee.getEmail()).toEqual("Email");
+    expect(employee.GetEmail()).toEqual("Email");
 });
