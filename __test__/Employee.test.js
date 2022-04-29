@@ -29,3 +29,7 @@ test("Checks to see if Id property returns Id", () => {
 test("Checks to see if Email property returns Email", () => {
     expect(employee.GetEmail()).toEqual("Email");
 });
+
+test("Checks to see if GetRole method returns Employee", () => {
+    expect(employee.GetRole()).toEqual("Employee");
+});

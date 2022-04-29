@@ -1,6 +1,6 @@
 const Manager = require("../lib/Manager");
 
-const manager = new Manager("Name", "Id", "Email");
+const manager = new Manager("Name", "Id", "Email", "OfficeNumber");
 
 test("Checks to see if employee object was created successfully", () => {
     expect(manager).not.toEqual(null);
@@ -28,4 +28,12 @@ test("Checks to see if Id property returns Id", () => {
 
 test("Checks to see if Email property returns Email", () => {
     expect(manager.GetEmail()).toEqual("Email");
+});
+
+test("Checks to see if OfficeNumber property returns OfficeNumber", () => {
+    expect(manager.GetOfficeNumber()).toEqual("OfficeNumber");
+});
+
+test("Checks to see if GetRole method returns Manager", () => {
+    expect(manager.GetRole()).toEqual("Manager");
 });
