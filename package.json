@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/cmullendore-bootcamp/team-generator#readme",
   "dependencies": {
-    "inquirer": "^8.2.3",
+    "inquirer": "^8.2.4",
     "jest": "^28.0.2"
   }
 }
