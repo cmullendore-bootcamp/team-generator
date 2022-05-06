@@ -1,3 +1,4 @@
+const FS = require("fs");
 const Inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
@@ -8,7 +9,8 @@ let employees = [];
 
 Inquirer.prompt(Manager.GetQuestions())
     .then(responses => {
-        manager.push(responses);
+        let mgr = new Manager(responses.userName, responses.userId, responses.userEmail, responses.officeNumber);
+        manager.push(mgr);
     })
     .then(() => nextAction());
 
@@ -29,7 +31,7 @@ function nextAction() {
                 case "Add an engineer":
                     Inquirer.prompt(Engineer.GetQuestions())
                         .then(responses => {
-                            employees.push(responses);
+                            employees.push(new Engineer(responses.userName, responses.userId, responses.userEmail, responses.ghRepo));
                             nextAction();
                         })
 
@@ -37,7 +39,7 @@ function nextAction() {
                 case "Add an intern":
                     Inquirer.prompt(Intern.GetQuestions())
                         .then(responses => {
-                            employees.push(responses);
+                            employees.push(new Intern(responses.userName, responses.userId, responses.userEmail, responses.school));
                             nextAction();
                         })
                     break;
@@ -51,6 +53,21 @@ function nextAction() {
 function buildPage(manager, employees) {
     console.log(manager);
     console.log(employees);
+
+    let html = FS.readFileSync("./src/index.html", "utf-8");
+
+    html = html.replace("{{ManagerCard}}", manager[0].GetHtml());
+
+    employeeHtml = "";
+
+    for (i = 0; i < employees.length; i++) {
+        employeeHtml = employeeHtml + employees[i].GetHtml();
+    }
+
+    html = html.replace("{{EmployeeCards}}", employeeHtml);
+
+    FS.writeFileSync("./dist/index.html", html);
+
 }
 
 

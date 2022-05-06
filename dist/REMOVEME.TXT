@@ -1,3 +1,0 @@
-NOTE: This file is here solely as a placeholder to force git
-to recognize this directory. It can be safely removed after
-additional content is added to this directory and persisted to git.
