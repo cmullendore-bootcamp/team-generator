@@ -3,9 +3,12 @@ const Inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const { Console } = require("console");
 
 let manager = [];
 let employees = [];
+
+console.log("Hello Manager! Please provide your information first and we'll ask you for more...");
 
 Inquirer.prompt(Manager.GetQuestions())
     .then(responses => {
@@ -51,9 +54,6 @@ function nextAction() {
 }
 
 function buildPage(manager, employees) {
-    console.log(manager);
-    console.log(employees);
-
     let html = FS.readFileSync("./src/index.html", "utf-8");
 
     html = html.replace("{{ManagerCard}}", manager[0].GetHtml());
@@ -69,13 +69,3 @@ function buildPage(manager, employees) {
     FS.writeFileSync("./dist/index.html", html);
 
 }
-
-
-
-
-/*
-Inquirer.prompt(questions)
-            .then(responses => {
-                return responses;
-            })
-*/
